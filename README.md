@@ -7,6 +7,8 @@ Cells used: [Samsung INR21700-40T](datasheets/Samsung-INR21700-40T.pdf)
 - Capacity: 4 Ah (4000 mAh)
 
 Pack:
+| Description       | Value                               |
+|-------------------|-------------------------------------|
 | Configuration     | 12s5p                               |
 | Max Voltage       | 50.4 V (12 \* 4.2 V)                |
 | Nominal Voltage   | 43.2 V (12 \* 3.6 V)                |
