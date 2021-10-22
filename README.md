@@ -66,8 +66,8 @@ side         top
 ```
 
 ## Tools
-### Spot Welder
 | Name | Description | Manual |
 |------|-------------|--------|
-| [kWeld](https://www.keenlab.de/index.php/product/kweld-complete-kit/) | Spot welder kit (kWeld, kCap and kSupply | [Assembly Manual](https://www.keenlab.de/wp-content/uploads/2018/07/kWeld-assembly-manual-r5.0.pdf), [Operation Manual](https://www.keenlab.de/wp-content/uploads/2018/07/kWeld-operation-manual-r3.0.pdf) |
-
+| [kWeld](https://www.keenlab.de/index.php/product/kweld-complete-kit/) | Spot welder kit | [Assembly Manual](https://www.keenlab.de/wp-content/uploads/2018/07/kWeld-assembly-manual-r5.0.pdf), [Operation Manual](https://www.keenlab.de/wp-content/uploads/2018/07/kWeld-operation-manual-r3.0.pdf) |
+| kCap | Ultracapacitor for kWeld | [Manual](https://www.keenlab.de/wp-content/uploads/2020/04/kCap-manual-r2.0.pdf) |
+| kSupply | High current voltage regulator and charger for kWeld | [Manual](https://www.keenlab.de/wp-content/uploads/2019/06/kSupply-manual.pdf) |
