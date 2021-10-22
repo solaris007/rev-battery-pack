@@ -65,6 +65,11 @@ Stack: vertical series of 6 packs of 5 cells, up and down
 side         top
 ```
 
+## Battery Management System (BMS)
+[JBD 12s Smart BMS](https://www.aliexpress.com/item/32819508078.html?spm=a2g0s.12269583.0.0.290022f9etByly)
+
+Used in discharge-bypass mode (only charging current flows through BMS, discharge is direct to consumer (StormCore ECS).
+
 ## Tools
 | Name | Description | Manual |
 |------|-------------|--------|
