@@ -1,7 +1,7 @@
 # Battery Pack for Boosted Rev
 
 ## Battery Specifications
-Cells used: [Samsung INR21700-40T](datasheets/Samsung-INR21700-40T.pdf)
+Cells used: [Samsung INR21700-40T](datasheets/Samsung-INR21700-40T.pdf) ([Ordered here](https://eu.nkon.nl/samsung-inr21700-40t-4000mah-30a.html))
 - Nominal voltage: 3.6
 - Fully charged voltage: 4.2
 - Capacity: 4 Ah (4000 mAh)
