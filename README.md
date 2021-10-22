@@ -26,11 +26,11 @@ Pack:
 Max power draw: 1500 W
 
 Max continuous demand on battery:
-| Description                    | Value                       |
-|--------------------------------|-----------------------------|
-| Full Throttle | Full Charge    | ~ 30 A (2 \* 750W) / 50.4 V |
-| Full Throttle | Nominal Charge | ~ 35 A (2 \* 750W) / 43.2 V |
-| Full Throttle | Empty Charge   | ~ 50 A (2 \* 750W) / 30 V   |
+| Throttle Pos. | State of Charge | Value                       |
+|---------------------------------|-----------------------------|
+| Full Throttle | Full Charge     | ~ 30 A (2 \* 750W) / 50.4 V |
+| Full Throttle | Nominal Charge  | ~ 35 A (2 \* 750W) / 43.2 V |
+| Full Throttle | Empty Charge    | ~ 50 A (2 \* 750W) / 30 V   |
 
 - The battery will be asked to deliver max 50 A reaching fully discharged (C-rate = 2.5, 10 A per cell)
 - The battery will be asked to deliver max 30 A when fully charged (C-rate = 1.5, 6A per cell)
