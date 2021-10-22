@@ -27,7 +27,7 @@ Max power draw: 1500 W
 
 Max continuous demand on battery:
 | Throttle Pos. | State of Charge | Value                       |
-|---------------------------------|-----------------------------|
+|---------------|-----------------|-----------------------------|
 | Full Throttle | Full Charge     | ~ 30 A (2 \* 750W) / 50.4 V |
 | Full Throttle | Nominal Charge  | ~ 35 A (2 \* 750W) / 43.2 V |
 | Full Throttle | Empty Charge    | ~ 50 A (2 \* 750W) / 30 V   |
