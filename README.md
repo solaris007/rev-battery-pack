@@ -64,3 +64,10 @@ Stack: vertical series of 6 packs of 5 cells, up and down
 
 side         top
 ```
+
+## Tools
+### Spot Welder
+| Name | Description | Manual |
+|------|-------------|--------|
+| [kWeld](https://www.keenlab.de/index.php/product/kweld-complete-kit/) | Spot welder kit (kWeld, kCap and kSupply | [Assembly Manual](https://www.keenlab.de/wp-content/uploads/2018/07/kWeld-assembly-manual-r5.0.pdf), [Operation Manual](https://www.keenlab.de/wp-content/uploads/2018/07/kWeld-operation-manual-r3.0.pdf) |
+
