@@ -44,26 +44,9 @@ Max continuous demand on battery:
 Enclosure limitations:
 - Max height:  45mm
 - Max width:  115mm
-- Max length: 400mm
+- Max length: 450mm
 
-Stack: vertical series of 6 packs of 5 cells, up and down
-```
------    -----------
-| | |    | | | | | |
------    -----------
-| | |    | | | | | |
------    -----------
-| | |    | | | | | |
------    -----------
-| | |    | | | | | |
------    -----------
-| | |    | | | | | |
------    -----------
-| | |    | | | | | |
------    -----------
-
-side         top
-```
+[Cell Configuration Diagram](diagrams/battery-pack-v0.5.pdf)
 
 ### Battery Management System (BMS)
 [JBD 12s Smart BMS](https://www.aliexpress.com/item/32819508078.html?spm=a2g0s.12269583.0.0.290022f9etByly) [Specifications](datasheets/jbd-bms-specifications.webp), [Wiring diagram](manuals/jbd-bms-wiring.webp)
