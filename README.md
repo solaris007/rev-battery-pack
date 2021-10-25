@@ -51,7 +51,14 @@ Enclosure limitations:
 ### Battery Management System (BMS)
 [JBD 12s Smart BMS](https://www.aliexpress.com/item/32819508078.html?spm=a2g0s.12269583.0.0.290022f9etByly) [Specifications](datasheets/jbd-bms-specifications.webp), [Wiring diagram](manuals/jbd-bms-wiring.webp)
 
-Used in discharge-bypass mode (only charging current flows through BMS, discharge is direct to consumer (StormCore ECS).
+The BMS will be used for monitoring charging and discharging the battery.
+
+DO NOT USE THE BMS IN BY-PASS MODE (i.e. only for charging the battery):
+- While the ESC (VESC) adds current discharge protection, but based on user-settings
+- If the user (you!) makes a configuration mistake protections may be removed
+- If the ESC has a fault or can't read its EEPROM, protections may be removed
+- Switching out the battery is dangerous without discharge protection
+- BMS cannot monitor regenerative current and adds no regen-charge protection
 
 ### Wiring & Strips
 Consult [current capacity list](datasheets/current_capacity.png) to size parallel/series connections between cells.
@@ -63,3 +70,12 @@ Consult [current capacity list](datasheets/current_capacity.png) to size paralle
 | kCap | Ultracapacitor for kWeld | [Manual](https://www.keenlab.de/wp-content/uploads/2020/04/kCap-manual-r2.0.pdf) |
 | kSupply | High current voltage regulator and charger for kWeld | [Manual](https://www.keenlab.de/wp-content/uploads/2019/06/kSupply-manual.pdf) |
 | [HP PSU HSTNS-PR01](https://www.ebay.ch/itm/114295259966?ssPageName=STRK%3AMEBIDX%3AIT&_trksid=p2060353.m2749.l2649) | HP Power Supply HSTNS-PR01 ATSN 7001044 380622-001 379124-001 for kWeld | - |
+
+
+## Sources / Inspiration
+- https://michael-castiau.blogspot.com
+- https://forum.freesk8.org/t/mod-a-boosted-rev-battery-esc-and-more/942
+- https://www.electricbike.com/introduction-battery-design-2/
+- https://www.eboardsperu.com/product/12s4p-battery-pack-for-12s-universal-enclosure/
+- https://lacroixboards.com/products/stormcore
+- https://vesc-project.com/
