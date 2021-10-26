@@ -63,6 +63,9 @@ DO NOT USE THE BMS IN BY-PASS MODE (i.e. only for charging the battery):
 ### Wiring & Strips
 Consult [current capacity list](datasheets/current_capacity.png) to size parallel/series connections between cells.
 
+#### BMS
+- 24AWG 1007 white single-core, 105°C / 300V
+
 ## Tools
 | Name | Description | Manual |
 |------|-------------|--------|
