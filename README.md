@@ -44,9 +44,15 @@ Max continuous demand on battery:
 Enclosure limitations:
 - Max height:  45mm
 - Max width:  115mm
-- Max length: 450mm
+- Max length: 520mm (with 7 series bottom and 5 series top to accommodate ECS)
 
 [Cell Configuration Diagram](diagrams/battery-pack-v0.5.pdf)
+
+### Battery Manufacture
+- Measure each cell. I measured a consistent 3.450 V with a maximum deviation of 0.01V.
+- Glue fish paper isolation rings on the positive end of the cells
+- Use room temperature epoxy to glue the 5 cells of a parallel group (P-group) together
+- After curing, wrap the P-group with fish paper
 
 ### Battery Management System (BMS)
 [JBD 12s Smart BMS](https://www.aliexpress.com/item/32819508078.html?spm=a2g0s.12269583.0.0.290022f9etByly) [Specifications](datasheets/jbd-bms-specifications.webp), [Wiring diagram](manuals/jbd-bms-wiring.webp)
