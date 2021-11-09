@@ -20,6 +20,15 @@ Pack:
 | Max Discharge              | 225 A (80°C cut-off)                |
 | Nominal Discharge          | 175 A                               |
 
+> ### Comparison with the stock Boosted Rev battery
+> The original battery has a capacity of 370Wh. This new battery pack
+> thus increases that capacity by more than 2.5 times.
+> If a 370Wh battery provides a range of appr. 25kmh, the new
+> battery should be able to provide a (theoretical) range of 68kmh.
+> 
+> This calculation is of course an indication and may vary based on riding style, weight of the rider
+> and road conditions.
+
 ## Consumer
 2 x 750 W motors.
 
