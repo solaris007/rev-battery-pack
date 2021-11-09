@@ -80,6 +80,15 @@ DO NOT USE THE BMS IN BY-PASS MODE (i.e. only for charging the battery):
 ### Wiring & Strips
 Consult [current capacity list](datasheets/current_capacity.png) to size parallel/series connections between cells.
 
+#### Nickel Strips
+Be careful where you order. From Alibaba I got nickel-plated steel instead of pure nickel. Plated steel has 4 times higher resistance than pure nickel with associated heat development during operation.
+
+I finally ordered [10 meters of 0.2mm x 50mm strip from NKON](https://eu.nkon.nl/accessories/packaccessoires/battery-solder-strip/1-meter-nikkel-batterijsoldeerstrip-50mm-0-20mm.html).
+
+From the nickel roll I cut strips that connect all cells in a P-group as well as provide a full-width series connection to the next p-group.
+
+The strip is ~86mm wide when folded up/down to the next p-group in series. 0.2mm thickness with 86mm width should give a decent optimal ampere rating of ~150A, therefore curbing heat between p-groups.
+
 #### BMS
 - 24AWG 1007 white single-core, 105°C / 300V
 
