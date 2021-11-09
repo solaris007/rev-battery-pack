@@ -2,23 +2,23 @@
 
 ## Battery Specifications
 Cells used: [Samsung INR21700-40T](datasheets/Samsung-INR21700-40T.pdf) ([Ordered here](https://eu.nkon.nl/samsung-inr21700-40t-4000mah-30a.html))
-- Nominal voltage: 3.6
-- Fully charged voltage: 4.2
-- Capacity: 4 Ah (4000 mAh)
+- Nominal voltage: +3.6V
+- Max voltage: +4.2V
+- Cut-off voltage: +2.5V 
+- Max capacity: 4 Ah (4000 mAh)
 
 Pack:
-| Description       | Value                               |
-|-------------------|-------------------------------------|
-| Configuration     | 12s5p                               |
-| Max Voltage       | 50.4 V (12 \* 4.2 V)                |
-| Nominal Voltage   | 43.2 V (12 \* 3.6 V)                |
-| Min Voltage       | 30.0 V (12 \* 2.5 V)                |
-| Max Capacity      | 20 Ah (5 \* 4 Ah), ~ 1 kWh (@ 50 V) |
-| Max Discharge     | 175 A (C-rate = 8.75)               |
-| Nominal Discharge | 20 A (C-rate = 1)                   |
 
-- The battery power limit is 8750 W when fully charged (C-rate 8.75, 35A per cell)
-- The battery power limit is 5250 W when reaching fully discharged  (C-rate 8.75, 35A per cell)
+| Description                | Value                               |
+|----------------------------|-------------------------------------|
+| Configuration              | 12S5P                               |
+| Capacity                   | 1008 Wh                             |
+| Max Voltage                | 50.4 V (12 \* 4.2 V)                |
+| Nominal Voltage            | 43.2 V (12 \* 3.6 V)                |
+| Cut-off Voltage            | 30.0 V (12 \* 2.5 V)                |
+| Discharge Capacity (Rated) | 20 Ah (5 \* 4 Ah)                   |
+| Max Discharge              | 225 A (80°C cut-off)                |
+| Nominal Discharge          | 175 A                               |
 
 ## Consumer
 2 x 750 W motors.
@@ -26,19 +26,19 @@ Pack:
 Max power draw: 1500 W
 
 Max continuous demand on battery:
+
 | Throttle Pos. | State of Charge | Value                       |
 |---------------|-----------------|-----------------------------|
 | Full Throttle | Full Charge     | ~ 30 A (2 \* 750W) / 50.4 V |
 | Full Throttle | Nominal Charge  | ~ 35 A (2 \* 750W) / 43.2 V |
 | Full Throttle | Empty Charge    | ~ 50 A (2 \* 750W) / 30 V   |
 
-- The battery will be asked to deliver max 50 A reaching fully discharged (C-rate = 2.5, 10 A per cell)
-- The battery will be asked to deliver max 30 A when fully charged (C-rate = 1.5, 6A per cell)
+These values are indicative and not representative of real-word conditions.
+(for ex. if you are going up a hill, even if the battery is fully charged, the motor will consume more than 30A)
 
-### ECS (Stormcore) Limits:
+### VECS (Stormcore 60D+) Limits:
 - Battery input V: max 50.4 V
-- Max Motor Power Draw: 80W for 10 minutes (is that per motor or for both motors combined?
-- Motor peak at 1000W ???
+- Max Motor power draw: 80A per motor (peak: 100A)
 
 ## Battery Pack Design
 Enclosure limitations:
@@ -60,11 +60,13 @@ Enclosure limitations:
 The BMS will be used for monitoring charging and discharging the battery.
 
 DO NOT USE THE BMS IN BY-PASS MODE (i.e. only for charging the battery):
-- While the ESC (VESC) adds current discharge protection, but based on user-settings
-- If the user (you!) makes a configuration mistake protections may be removed
-- If the ESC has a fault or can't read its EEPROM, protections may be removed
-- Switching out the battery is dangerous without discharge protection
-- BMS cannot monitor regenerative current and adds no regen-charge protection
+
+- The ESC adds additional current discharge protection, but it's exactly that: additional. It's not meant to replace the robust discharge/undervoltage protection of a BMS.
+- If the user (you!) makes a configuration mistake protections may be removed, since this is a simple memory setting
+- If the ESC has a fault or EEPROM gets corrupted (by age or external factors), protections may be removed
+- Switching out the battery is dangerous without discharge protection. Battery terminals should always be protected.
+- Most ESCs perform poor regenerative current monitoring
+- **An ESC won't provide over-voltage protection, or provide correct Li-ion charge algorithms**
 
 ### Wiring & Strips
 Consult [current capacity list](datasheets/current_capacity.png) to size parallel/series connections between cells.
