@@ -12,19 +12,19 @@ Pack:
 | Description                | Value                               |
 |----------------------------|-------------------------------------|
 | Configuration              | 12S5P                               |
-| Capacity                   | 1008 Wh                             |
-| Max Voltage                | 50.4 V (12 \* 4.2 V)                |
-| Nominal Voltage            | 43.2 V (12 \* 3.6 V)                |
-| Cut-off Voltage            | 30.0 V (12 \* 2.5 V)                |
-| Discharge Capacity (Rated) | 20 Ah (5 \* 4 Ah)                   |
+| Capacity                   | 864 Wh                              |
+| Max Voltage                | 50.4 V                              |
+| Nominal Voltage            | 43.2 V                              |
+| Cut-off Voltage            | 30.0 V                              |
+| Discharge Capacity (Rated) | 20 Ah                               |
 | Max Discharge              | 225 A (80°C cut-off)                |
 | Nominal Discharge          | 175 A                               |
 
 > ### Comparison with the stock Boosted Rev battery
 > The original battery has a capacity of 370Wh. This new battery pack
-> thus increases that capacity by more than 2.5 times.
+> thus increases that capacity by more than 2 times.
 > If a 370Wh battery provides a range of appr. 25kmh, the new
-> battery should be able to provide a (theoretical) range of 68kmh.
+> battery should be able to provide a (theoretical) range of 55kmh.
 > 
 > This calculation is of course an indication and may vary based on riding style, weight of the rider
 > and road conditions.
