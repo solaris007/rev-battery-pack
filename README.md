@@ -47,13 +47,14 @@ These values are indicative and not representative of real-word conditions.
 
 ### VECS (Stormcore 60D+) Limits:
 - Battery input V: max 50.4 V
-- Max Motor power draw: 80A per motor (peak: 100A)
+- Max power rating: 80A for a couple of minutes (peak: 100A for a couple of seconds)
+- Max Motor power draw: 30A per motor => 60A combined
 
 ## Battery Pack Design
 Enclosure limitations:
 - Max height:  45mm
 - Max width:  115mm
-- Max length: 520mm (with 7 series bottom and 5 series top to accommodate ECS)
+- Max length: 520mm (with 7 series bottom and 5 series top to accommodate VECS)
 
 [Cell Configuration Diagram](diagrams/battery-pack-v0.5.pdf)
 
