@@ -24,7 +24,7 @@ Pack:
 > The original battery has a capacity of 370Wh. This new battery pack
 > thus increases that capacity by more than 2 times.
 > If a 370Wh battery provides a range of appr. 25kmh, the new
-> battery should be able to provide a (theoretical) range of 55kmh.
+> battery should be able to provide a (theoretical) range of 55km.
 > 
 > This calculation is of course an indication and may vary based on riding style, weight of the rider
 > and road conditions.
@@ -54,7 +54,7 @@ These values are indicative and not representative of real-word conditions.
 Enclosure limitations:
 - Max height:  45mm
 - Max width:  115mm
-- Max length: 520mm (with 7 series bottom and 5 series top to accommodate VECS)
+- Max length: 520mm (with 7 series bottom and 5 series top to accommodate VESC)
 
 [Cell Configuration Diagram](diagrams/battery-pack-v0.5.pdf)
 
