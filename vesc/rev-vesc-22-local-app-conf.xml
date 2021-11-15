@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <APPConfiguration>
-    <controller_id>22</controller_id>
+    <controller_id>25</controller_id>
     <timeout_msec>1000</timeout_msec>
-    <timeout_brake_current>10</timeout_brake_current>
+    <timeout_brake_current>0</timeout_brake_current>
     <send_can_status>5</send_can_status>
     <send_can_status_rate_hz>5</send_can_status_rate_hz>
     <can_baud_rate>2</can_baud_rate>
@@ -32,8 +32,8 @@
     <app_ppm_conf.max_erpm_for_dir>4000</app_ppm_conf.max_erpm_for_dir>
     <app_ppm_conf.smart_rev_max_duty>0.07</app_ppm_conf.smart_rev_max_duty>
     <app_ppm_conf.smart_rev_ramp_time>3</app_ppm_conf.smart_rev_ramp_time>
-    <app_adc_conf.ctrl_type>2</app_adc_conf.ctrl_type>
-    <app_adc_conf.hyst>0.15</app_adc_conf.hyst>
+    <app_adc_conf.ctrl_type>6</app_adc_conf.ctrl_type>
+    <app_adc_conf.hyst>0.19</app_adc_conf.hyst>
     <app_adc_conf.voltage_start>1.7</app_adc_conf.voltage_start>
     <app_adc_conf.voltage_end>3.1</app_adc_conf.voltage_end>
     <app_adc_conf.voltage_center>2.3</app_adc_conf.voltage_center>
@@ -97,7 +97,7 @@
     <app_balance_conf.tiltback_angle>15</app_balance_conf.tiltback_angle>
     <app_balance_conf.tiltback_speed>5</app_balance_conf.tiltback_speed>
     <app_balance_conf.tiltback_duty>0.75</app_balance_conf.tiltback_duty>
-    <app_balance_conf.tiltback_high_voltage>100</app_balance_conf.tiltback_high_voltage>
+    <app_balance_conf.tiltback_high_voltage>200</app_balance_conf.tiltback_high_voltage>
     <app_balance_conf.tiltback_low_voltage>0</app_balance_conf.tiltback_low_voltage>
     <app_balance_conf.tiltback_constant>0</app_balance_conf.tiltback_constant>
     <app_balance_conf.tiltback_constant_erpm>500</app_balance_conf.tiltback_constant_erpm>
@@ -118,16 +118,16 @@
     <app_balance_conf.setpoint_target_filter>1</app_balance_conf.setpoint_target_filter>
     <app_balance_conf.setpoint_filter_clamp>8</app_balance_conf.setpoint_filter_clamp>
     <app_balance_conf.kd_pt1_frequency>0</app_balance_conf.kd_pt1_frequency>
-    <app_pas_conf.ctrl_type>1</app_pas_conf.ctrl_type>
+    <app_pas_conf.ctrl_type>0</app_pas_conf.ctrl_type>
     <app_pas_conf.sensor_type>0</app_pas_conf.sensor_type>
     <app_pas_conf.pedal_rpm_start>10</app_pas_conf.pedal_rpm_start>
-    <app_pas_conf.pedal_rpm_end>120</app_pas_conf.pedal_rpm_end>
+    <app_pas_conf.pedal_rpm_end>180</app_pas_conf.pedal_rpm_end>
     <app_pas_conf.invert_pedal_direction>0</app_pas_conf.invert_pedal_direction>
     <app_pas_conf.magnets>24</app_pas_conf.magnets>
     <app_pas_conf.use_filter>1</app_pas_conf.use_filter>
-    <app_pas_conf.current_scaling>0.08</app_pas_conf.current_scaling>
-    <app_pas_conf.ramp_time_pos>0.3</app_pas_conf.ramp_time_pos>
-    <app_pas_conf.ramp_time_neg>0.2</app_pas_conf.ramp_time_neg>
+    <app_pas_conf.current_scaling>0.1</app_pas_conf.current_scaling>
+    <app_pas_conf.ramp_time_pos>0.6</app_pas_conf.ramp_time_pos>
+    <app_pas_conf.ramp_time_neg>0.3</app_pas_conf.ramp_time_neg>
     <app_pas_conf.update_rate_hz>500</app_pas_conf.update_rate_hz>
     <imu_conf.type>1</imu_conf.type>
     <imu_conf.mode>0</imu_conf.mode>
