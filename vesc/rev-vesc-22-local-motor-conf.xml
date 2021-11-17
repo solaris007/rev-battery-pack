@@ -7,17 +7,17 @@
     <l_current_max>30</l_current_max>
     <l_current_min>-30</l_current_min>
     <l_in_current_max>30</l_in_current_max>
-    <l_in_current_min>-12</l_in_current_min>
-    <l_abs_current_max>30</l_abs_current_max>
-    <l_min_erpm>-20000</l_min_erpm>
-    <l_max_erpm>20000</l_max_erpm>
+    <l_in_current_min>-15</l_in_current_min>
+    <l_abs_current_max>175</l_abs_current_max>
+    <l_min_erpm>-60000</l_min_erpm>
+    <l_max_erpm>60000</l_max_erpm>
     <l_erpm_start>0.8</l_erpm_start>
     <l_max_erpm_fbrake>300</l_max_erpm_fbrake>
     <l_max_erpm_fbrake_cc>1500</l_max_erpm_fbrake_cc>
     <l_min_vin>8</l_min_vin>
     <l_max_vin>57</l_max_vin>
-    <l_battery_cut_start>34</l_battery_cut_start>
-    <l_battery_cut_end>33</l_battery_cut_end>
+    <l_battery_cut_start>33</l_battery_cut_start>
+    <l_battery_cut_end>31</l_battery_cut_end>
     <l_slow_abs_current>1</l_slow_abs_current>
     <l_temp_fet_start>85</l_temp_fet_start>
     <l_temp_fet_end>100</l_temp_fet_end>
@@ -112,7 +112,7 @@
     <s_pid_ki>0.004</s_pid_ki>
     <s_pid_kd>0.0001</s_pid_kd>
     <s_pid_kd_filter>0.2</s_pid_kd_filter>
-    <s_pid_min_erpm>900</s_pid_min_erpm>
+    <s_pid_min_erpm>700</s_pid_min_erpm>
     <s_pid_allow_braking>1</s_pid_allow_braking>
     <s_pid_ramp_erpms_s>-1</s_pid_ramp_erpms_s>
     <p_pid_kp>0.03</p_pid_kp>
@@ -129,7 +129,7 @@
     <m_current_backoff_gain>0.5</m_current_backoff_gain>
     <m_encoder_counts>8192</m_encoder_counts>
     <m_sensor_port_mode>0</m_sensor_port_mode>
-    <m_invert_direction>1</m_invert_direction>
+    <m_invert_direction>0</m_invert_direction>
     <m_drv8301_oc_mode>0</m_drv8301_oc_mode>
     <m_drv8301_oc_adj>14</m_drv8301_oc_adj>
     <m_bldc_f_sw_min>3000</m_bldc_f_sw_min>
@@ -142,7 +142,7 @@
     <m_hall_extra_samples>1</m_hall_extra_samples>
     <si_motor_poles>14</si_motor_poles>
     <si_gear_ratio>1</si_gear_ratio>
-    <si_wheel_diameter>0.222</si_wheel_diameter>
+    <si_wheel_diameter>0.229</si_wheel_diameter>
     <si_battery_type>0</si_battery_type>
     <si_battery_cells>12</si_battery_cells>
     <si_battery_ah>20</si_battery_ah>
