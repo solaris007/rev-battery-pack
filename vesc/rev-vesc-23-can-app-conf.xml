@@ -136,15 +136,15 @@
     <imu_conf.mahony_kp>0.3</imu_conf.mahony_kp>
     <imu_conf.mahony_ki>0</imu_conf.mahony_ki>
     <imu_conf.madgwick_beta>0.1</imu_conf.madgwick_beta>
-    <imu_conf.rot_roll>0</imu_conf.rot_roll>
-    <imu_conf.rot_pitch>0</imu_conf.rot_pitch>
+    <imu_conf.rot_roll>-4.08</imu_conf.rot_roll>
+    <imu_conf.rot_pitch>-24.59</imu_conf.rot_pitch>
     <imu_conf.rot_yaw>0</imu_conf.rot_yaw>
     <imu_conf.accel_offsets__0>0</imu_conf.accel_offsets__0>
     <imu_conf.accel_offsets__1>0</imu_conf.accel_offsets__1>
     <imu_conf.accel_offsets__2>0</imu_conf.accel_offsets__2>
-    <imu_conf.gyro_offsets__0>0</imu_conf.gyro_offsets__0>
-    <imu_conf.gyro_offsets__1>0</imu_conf.gyro_offsets__1>
-    <imu_conf.gyro_offsets__2>0</imu_conf.gyro_offsets__2>
+    <imu_conf.gyro_offsets__0>-0.27</imu_conf.gyro_offsets__0>
+    <imu_conf.gyro_offsets__1>0.35</imu_conf.gyro_offsets__1>
+    <imu_conf.gyro_offsets__2>-0.54</imu_conf.gyro_offsets__2>
     <imu_conf.gyro_offset_comp_fact__0>0</imu_conf.gyro_offset_comp_fact__0>
     <imu_conf.gyro_offset_comp_fact__1>0</imu_conf.gyro_offset_comp_fact__1>
     <imu_conf.gyro_offset_comp_fact__2>0</imu_conf.gyro_offset_comp_fact__2>

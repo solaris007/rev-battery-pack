@@ -33,10 +33,10 @@
     <app_ppm_conf.smart_rev_max_duty>0.07</app_ppm_conf.smart_rev_max_duty>
     <app_ppm_conf.smart_rev_ramp_time>3</app_ppm_conf.smart_rev_ramp_time>
     <app_adc_conf.ctrl_type>6</app_adc_conf.ctrl_type>
-    <app_adc_conf.hyst>0.08</app_adc_conf.hyst>
-    <app_adc_conf.voltage_start>1.85</app_adc_conf.voltage_start>
-    <app_adc_conf.voltage_end>3.15</app_adc_conf.voltage_end>
-    <app_adc_conf.voltage_center>2.45</app_adc_conf.voltage_center>
+    <app_adc_conf.hyst>0.1</app_adc_conf.hyst>
+    <app_adc_conf.voltage_start>1.86</app_adc_conf.voltage_start>
+    <app_adc_conf.voltage_end>3.1</app_adc_conf.voltage_end>
+    <app_adc_conf.voltage_center>2.44</app_adc_conf.voltage_center>
     <app_adc_conf.voltage2_start>0</app_adc_conf.voltage2_start>
     <app_adc_conf.voltage2_end>1.5</app_adc_conf.voltage2_end>
     <app_adc_conf.use_filter>1</app_adc_conf.use_filter>
@@ -45,8 +45,8 @@
     <app_adc_conf.rev_button_inverted>0</app_adc_conf.rev_button_inverted>
     <app_adc_conf.voltage_inverted>0</app_adc_conf.voltage_inverted>
     <app_adc_conf.voltage2_inverted>0</app_adc_conf.voltage2_inverted>
-    <app_adc_conf.throttle_exp>1</app_adc_conf.throttle_exp>
-    <app_adc_conf.throttle_exp_brake>2.5</app_adc_conf.throttle_exp_brake>
+    <app_adc_conf.throttle_exp>0.75</app_adc_conf.throttle_exp>
+    <app_adc_conf.throttle_exp_brake>2.25</app_adc_conf.throttle_exp_brake>
     <app_adc_conf.throttle_exp_mode>1</app_adc_conf.throttle_exp_mode>
     <app_adc_conf.ramp_time_pos>0.3</app_adc_conf.ramp_time_pos>
     <app_adc_conf.ramp_time_neg>0.1</app_adc_conf.ramp_time_neg>
@@ -136,15 +136,15 @@
     <imu_conf.mahony_kp>0.3</imu_conf.mahony_kp>
     <imu_conf.mahony_ki>0</imu_conf.mahony_ki>
     <imu_conf.madgwick_beta>0.1</imu_conf.madgwick_beta>
-    <imu_conf.rot_roll>0</imu_conf.rot_roll>
-    <imu_conf.rot_pitch>0</imu_conf.rot_pitch>
+    <imu_conf.rot_roll>-3.88</imu_conf.rot_roll>
+    <imu_conf.rot_pitch>-24.69</imu_conf.rot_pitch>
     <imu_conf.rot_yaw>0</imu_conf.rot_yaw>
     <imu_conf.accel_offsets__0>0</imu_conf.accel_offsets__0>
     <imu_conf.accel_offsets__1>0</imu_conf.accel_offsets__1>
     <imu_conf.accel_offsets__2>0</imu_conf.accel_offsets__2>
-    <imu_conf.gyro_offsets__0>0</imu_conf.gyro_offsets__0>
-    <imu_conf.gyro_offsets__1>0</imu_conf.gyro_offsets__1>
-    <imu_conf.gyro_offsets__2>0</imu_conf.gyro_offsets__2>
+    <imu_conf.gyro_offsets__0>-0.38</imu_conf.gyro_offsets__0>
+    <imu_conf.gyro_offsets__1>0.36</imu_conf.gyro_offsets__1>
+    <imu_conf.gyro_offsets__2>-0.53</imu_conf.gyro_offsets__2>
     <imu_conf.gyro_offset_comp_fact__0>0</imu_conf.gyro_offset_comp_fact__0>
     <imu_conf.gyro_offset_comp_fact__1>0</imu_conf.gyro_offset_comp_fact__1>
     <imu_conf.gyro_offset_comp_fact__2>0</imu_conf.gyro_offset_comp_fact__2>

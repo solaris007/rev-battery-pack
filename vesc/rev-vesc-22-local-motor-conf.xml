@@ -7,7 +7,7 @@
     <l_current_max>50</l_current_max>
     <l_current_min>-50</l_current_min>
     <l_in_current_max>30</l_in_current_max>
-    <l_in_current_min>-15</l_in_current_min>
+    <l_in_current_min>-12</l_in_current_min>
     <l_abs_current_max>75</l_abs_current_max>
     <l_min_erpm>-20000</l_min_erpm>
     <l_max_erpm>20000</l_max_erpm>
@@ -19,11 +19,11 @@
     <l_battery_cut_start>34.5</l_battery_cut_start>
     <l_battery_cut_end>33.5</l_battery_cut_end>
     <l_slow_abs_current>1</l_slow_abs_current>
-    <l_temp_fet_start>70</l_temp_fet_start>
-    <l_temp_fet_end>80</l_temp_fet_end>
+    <l_temp_fet_start>60</l_temp_fet_start>
+    <l_temp_fet_end>70</l_temp_fet_end>
     <l_temp_motor_start>70</l_temp_motor_start>
     <l_temp_motor_end>80</l_temp_motor_end>
-    <l_temp_accel_dec>0.15</l_temp_accel_dec>
+    <l_temp_accel_dec>0.2</l_temp_accel_dec>
     <l_min_duty>0.005</l_min_duty>
     <l_max_duty>0.95</l_max_duty>
     <l_watt_max>1.5e+06</l_watt_max>
@@ -140,7 +140,7 @@
     <m_motor_temp_sens_type>0</m_motor_temp_sens_type>
     <m_ptc_motor_coeff>0.61</m_ptc_motor_coeff>
     <m_hall_extra_samples>1</m_hall_extra_samples>
-    <si_motor_poles>4</si_motor_poles>
+    <si_motor_poles>40</si_motor_poles>
     <si_gear_ratio>1</si_gear_ratio>
     <si_wheel_diameter>0.229</si_wheel_diameter>
     <si_battery_type>0</si_battery_type>
@@ -149,7 +149,7 @@
     <motor_brand>Unnamed</motor_brand>
     <motor_model>Not Specified</motor_model>
     <motor_weight>0</motor_weight>
-    <motor_poles>14</motor_poles>
+    <motor_poles>40</motor_poles>
     <motor_sensor_type>0</motor_sensor_type>
     <motor_description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
