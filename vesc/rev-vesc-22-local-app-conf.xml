@@ -4,9 +4,9 @@
     <timeout_msec>1000</timeout_msec>
     <timeout_brake_current>0</timeout_brake_current>
     <send_can_status>5</send_can_status>
-    <send_can_status_rate_hz>5</send_can_status_rate_hz>
+    <send_can_status_rate_hz>50</send_can_status_rate_hz>
     <can_baud_rate>2</can_baud_rate>
-    <pairing_done>1</pairing_done>
+    <pairing_done>0</pairing_done>
     <permanent_uart_enabled>1</permanent_uart_enabled>
     <shutdown_mode>6</shutdown_mode>
     <can_mode>0</can_mode>
@@ -33,27 +33,27 @@
     <app_ppm_conf.smart_rev_max_duty>0.07</app_ppm_conf.smart_rev_max_duty>
     <app_ppm_conf.smart_rev_ramp_time>3</app_ppm_conf.smart_rev_ramp_time>
     <app_adc_conf.ctrl_type>6</app_adc_conf.ctrl_type>
-    <app_adc_conf.hyst>0.05</app_adc_conf.hyst>
-    <app_adc_conf.voltage_start>1.67</app_adc_conf.voltage_start>
-    <app_adc_conf.voltage_end>2.86</app_adc_conf.voltage_end>
-    <app_adc_conf.voltage_center>2.21</app_adc_conf.voltage_center>
-    <app_adc_conf.voltage2_start>1.51</app_adc_conf.voltage2_start>
-    <app_adc_conf.voltage2_end>1.85</app_adc_conf.voltage2_end>
+    <app_adc_conf.hyst>0.08</app_adc_conf.hyst>
+    <app_adc_conf.voltage_start>1.85</app_adc_conf.voltage_start>
+    <app_adc_conf.voltage_end>3.15</app_adc_conf.voltage_end>
+    <app_adc_conf.voltage_center>2.45</app_adc_conf.voltage_center>
+    <app_adc_conf.voltage2_start>0</app_adc_conf.voltage2_start>
+    <app_adc_conf.voltage2_end>1.5</app_adc_conf.voltage2_end>
     <app_adc_conf.use_filter>1</app_adc_conf.use_filter>
     <app_adc_conf.safe_start>1</app_adc_conf.safe_start>
     <app_adc_conf.cc_button_inverted>0</app_adc_conf.cc_button_inverted>
     <app_adc_conf.rev_button_inverted>0</app_adc_conf.rev_button_inverted>
     <app_adc_conf.voltage_inverted>0</app_adc_conf.voltage_inverted>
     <app_adc_conf.voltage2_inverted>0</app_adc_conf.voltage2_inverted>
-    <app_adc_conf.throttle_exp>2.5</app_adc_conf.throttle_exp>
+    <app_adc_conf.throttle_exp>1</app_adc_conf.throttle_exp>
     <app_adc_conf.throttle_exp_brake>2.5</app_adc_conf.throttle_exp_brake>
-    <app_adc_conf.throttle_exp_mode>0</app_adc_conf.throttle_exp_mode>
+    <app_adc_conf.throttle_exp_mode>1</app_adc_conf.throttle_exp_mode>
     <app_adc_conf.ramp_time_pos>0.3</app_adc_conf.ramp_time_pos>
-    <app_adc_conf.ramp_time_neg>0.01</app_adc_conf.ramp_time_neg>
+    <app_adc_conf.ramp_time_neg>0.1</app_adc_conf.ramp_time_neg>
     <app_adc_conf.multi_esc>1</app_adc_conf.multi_esc>
-    <app_adc_conf.tc>0</app_adc_conf.tc>
+    <app_adc_conf.tc>1</app_adc_conf.tc>
     <app_adc_conf.tc_max_diff>3000</app_adc_conf.tc_max_diff>
-    <app_adc_conf.update_rate_hz>500</app_adc_conf.update_rate_hz>
+    <app_adc_conf.update_rate_hz>50</app_adc_conf.update_rate_hz>
     <app_uart_baudrate>115200</app_uart_baudrate>
     <app_chuk_conf.ctrl_type>1</app_chuk_conf.ctrl_type>
     <app_chuk_conf.hyst>0.15</app_chuk_conf.hyst>
