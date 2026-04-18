@@ -54,7 +54,7 @@
     <app_adc_conf.tc>0</app_adc_conf.tc>
     <app_adc_conf.tc_max_diff>3000</app_adc_conf.tc_max_diff>
     <app_adc_conf.update_rate_hz>500</app_adc_conf.update_rate_hz>
-    <app_uart_baudrate>115200</app_uart_baudrate>
+    <app_uart_baudrate>9600</app_uart_baudrate>
     <app_chuk_conf.ctrl_type>1</app_chuk_conf.ctrl_type>
     <app_chuk_conf.hyst>0.15</app_chuk_conf.hyst>
     <app_chuk_conf.ramp_time_pos>0.4</app_chuk_conf.ramp_time_pos>
