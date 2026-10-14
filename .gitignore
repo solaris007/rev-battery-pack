@@ -1,1 +1,16 @@
+# macOS / Windows
 .DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+
+# VESC Tool and OmniGraffle temporary files
+*.bak
+*~
