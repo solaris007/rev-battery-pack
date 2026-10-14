@@ -70,7 +70,7 @@ The pack uses 7 P-groups on the bottom layer and 5 on the top layer to leave roo
 - [Layout v0.5 (PDF)](../diagrams/battery-pack-v0.5.pdf), earlier draft.
 - [OmniGraffle source](../diagrams/battery-pack.graffle).
 
-The diagram still labels the controller as Stormcore. The controller is now a VESC HD60T in the same place.
+The diagram still labels the controller as Stormcore. The VESC HD60T took its place in November 2021.
 The diagram's "12 × 4.5 V" note is a typo for 12 × 4.2 V.
 
 ## Build Steps
@@ -113,9 +113,10 @@ Folded, the strip is about 86 mm wide. At 0.2 mm thick that carries roughly 150 
 | Over-discharge release | 2.9 V per cell |
 | Over-temperature | 75 °C |
 
-The current rating of the installed BMS variant is not recorded. Add it to [the controller log](../log/controller.md#hardware) when known.
+The installed BMS is the 60 A discharge variant, because the 20 A variant was too weak. It accepts up to 40 A charge current.
+The pack's main lead ends in an XT90-S anti-spark plug.
 
-**Never ride with the BMS charge input switched off.** Regen braking then has no path into the pack, the bus voltage spikes and the controller dies. This destroyed the HD60T in October 2026.
+**Never ride with the BMS charge input switched off.** Regen braking then has no path into the pack, the bus voltage spikes and the controller dies. This destroyed the HD60T in April 2026.
 The BMS also opens its charge path by itself at 4.25 V per cell, so avoid hard regen on a full pack.
 
 The BMS protects both charging and discharging. **Do not run the BMS in bypass mode**, i.e. only for charging:

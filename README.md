@@ -11,9 +11,10 @@ The pack more than doubles the stock 370 Wh battery, for a theoretical range of 
 |---|---|
 | Cells | 60 × Samsung INR21700-40T, 12S5P |
 | Pack | 50.4 V max, 43.2 V nominal, 20 Ah, 864 Wh |
-| BMS | JBD 12S Smart BMS |
-| Controller | Trampa VESC HD60T, dual, CAN IDs 22 and 23. **Failed 2026-10 from regen with the BMS charge input off, replacement pending** |
-| Previous controller | Stormcore 60D+, 2021–2026 |
+| BMS | JBD 12S Smart BMS, 60 A discharge |
+| Controller | Trampa VESC HD60T, dual, CAN IDs 22 and 23, since 2021-11. **Failed 2026-04 from regen with the BMS charge input off, replacement pending** |
+| Previous controller | Stormcore 60D+, failed after two days in November 2021 |
+| Dashboard | ReVOLT dashboard on CAN, with the throttle wired through it |
 | Motors | 2 × 750 W continuous hub motors, original Boosted |
 
 ## Documentation
@@ -36,7 +37,7 @@ docs/         how the pack and controller are built and maintained
 log/          dated records: controller changes, maintenance, battery health
 vesc/         VESC Tool XML exports, one directory per controller hardware
   hd60t/        current: id22-motor.xml, id22-app.xml, id23-motor.xml, id23-app.xml
-  stormcore-60d/  previous controller, kept for reference
+  stormcore-60d/  2021 configs, Stormcore first, then HD60T, kept for reference
 scripts/      vesc_check.py summarises, diffs and checks VESC configs
 diagrams/     pack layout (OmniGraffle source, PDF and PNG)
 datasheets/   cell, BMS, sealant and wire specifications

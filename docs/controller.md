@@ -3,13 +3,16 @@
 The Rev runs two hub motors from a dual VESC controller. Both halves talk over CAN.
 The live record of hardware, firmware and changes is in [log/controller.md](../log/controller.md).
 
-> **Status, October 2026:** the HD60T failed from regen braking with the BMS charge input switched off. It must be replaced.
+> **Status, October 2026:** the HD60T failed in April 2026 from regen braking with the BMS charge input switched off. It must be replaced.
 > The cause, prevention rules, options and migration steps are in [controller-replacement.md](controller-replacement.md).
+> The replacement is a VESC Duet XS 100V with a VESC Nanolog for Bluetooth, Wi-Fi and logging, not yet ordered.
 > The HD60T configs stay in `vesc/hd60t/` as the reference for the next controller.
 
 ## Last hardware: Trampa VESC HD60T, failed
 
 ![VESC HD60 dual board](../images/vesc-hd60-board.jpg)
+
+In service from 2021-11-20, when it replaced the failed Stormcore 60D+, until it failed in April 2026.
 
 The HD60T is one board with two independent VESC controllers, linked internally by CAN.
 See the [HD60T manual](../manuals/vesc-hd60t-manual.pdf).
@@ -26,6 +29,8 @@ See the [HD60T manual](../manuals/vesc-hd60t-manual.pdf).
 
 A full 12S pack sits at 50.4 V, only 1.6 V under the 52 V rating.
 Regenerative braking on a full pack pushes the voltage up, so ride gently for the first minutes after a full charge.
+
+For the ReVOLT dashboard to switch the board on and off, COMM pins 1 and 6, power switch and GND, are bridged on both controllers.
 
 Never brake with the BMS charge input switched off. Regen current then has nowhere to go and destroys the controller, which is how this HD60T failed.
 
@@ -44,8 +49,10 @@ The manual's minimum system requirements:
 |---|---|---|---|
 | 22 | Master | ADC + UART | Reads the throttle on ADC and forwards commands to ID 23 over CAN |
 | 23 | Slave | UART | Follows ID 22 through multi-ESC CAN control |
+| unknown | ReVOLT dashboard | – | Reads both controllers over CAN, passes the throttle to ID 22's ADC input and switches the controllers on and off |
 
-Both controllers use CAN baud rate setting 2 and send status at 50 Hz.
+Both controllers use CAN baud rate setting 2, 500 kbit/s, which matches the dashboard's default, and send status at 50 Hz.
+The UART on ID 22 most likely serves the Metr Pro, a UART Bluetooth module. Dashboard wiring is in the [controller log](../log/controller.md#hardware).
 Both run sensorless FOC. The hall sensors in the motors are not used.
 
 ## Config files
@@ -55,11 +62,12 @@ Each file is named `id<CAN ID>-<motor|app>.xml`.
 
 | Directory | Hardware | Status | Old file names |
 |---|---|---|---|
-| [`vesc/hd60t/`](../vesc/hd60t) | Trampa VESC HD60T | Last used, failed 2026-10 | `rev-vesc-22-*-conf.xml` → `id22-*`, `rev-vesc-local-*-conf.xml` → `id23-*` |
-| [`vesc/stormcore-60d/`](../vesc/stormcore-60d) | Stormcore 60D+ | Previous | `rev-vesc-22-local-*-conf.xml` → `id22-*`, `rev-vesc-23-can-*-conf.xml` → `id23-*` |
+| [`vesc/hd60t/`](../vesc/hd60t) | Trampa VESC HD60T | Last used, failed 2026-04 | `rev-vesc-22-*-conf.xml` → `id22-*`, `rev-vesc-local-*-conf.xml` → `id23-*` |
+| [`vesc/stormcore-60d/`](../vesc/stormcore-60d) | Stormcore 60D+ until 2021-11-17, then HD60T | Previous | `rev-vesc-22-local-*-conf.xml` → `id22-*`, `rev-vesc-23-can-*-conf.xml` → `id23-*` |
 
-The HD60T files use the newer VESC Tool format with `ConfigVersion` 2.
-The Stormcore files use the older format.
+The `vesc/hd60t/` files use the newer VESC Tool format with `ConfigVersion` 2. They are the HD60T's last configs, after a firmware update.
+The `vesc/stormcore-60d/` files use the older format. Despite the directory name, their history holds Stormcore configs only up to 2021-11-17 and HD60T configs from 2021-11-21.
+See the note in the [config history](../log/controller.md#config-history).
 
 ### Key settings, HD60T
 
@@ -95,7 +103,7 @@ Generated with `python3 scripts/vesc_check.py summary vesc/hd60t`.
 - **ID 22 setup info is at VESC defaults.** Poles, gear ratio, wheel diameter and battery Ah should be 40, 1, 0.222 m and 20 Ah like ID 23. These values only affect speed, distance and battery % shown in VESC Tool, not motor control.
 - **Regen equals the pack's charge limit.** 2 × 15 A is the full 30 A the cells accept. Keep it there or lower, never higher.
 - **The VESC cut-off may come after the BMS cut-off.** 33.5 V is 2.79 V per cell. The BMS trips at 2.7 ± 0.1 V per cell, so a BMS at the top of its tolerance can cut power first. Raising the cut-off end to about 34.0 V removes the overlap.
-- **The motor on ID 23 measures about 50 % more resistance than ID 22.** The Stormcore measured the same gap in 2021, so it most likely follows the motor or its wiring rather than the controller. Track it in the detection history and check the phase connectors if the gap grows.
+- **The motor on ID 23 measures about 50 % more resistance than ID 22.** The HD60T measured the same gap in 2021, so it is long-standing. Both results come from the same board, so the gap may follow the motor and its wiring or one half of the controller. The first detection on the new controller tells them apart: if the gap stays, it is on the motor side. Track it in the detection history and check the phase connectors if the gap grows.
 
 ## Changing the configuration
 
@@ -116,7 +124,9 @@ Generated with `python3 scripts/vesc_check.py summary vesc/hd60t`.
 
 ## Previous hardware: Stormcore 60D+
 
-Used from 2021 until the HD60T swap in 2026. It measures 132 × 70 × 23 mm, so the bay was originally sized for it. Its configs are kept in `vesc/stormcore-60d/` for reference.
+Used from 2021-11-15 until it failed on 2021-11-17, see the [fault log](../log/controller.md#faults). The HD60T replaced it on 2021-11-20.
+A warranty replacement shipped on 2021-11-22. Whether it is still on hand is unknown.
+It measures 132 × 70 × 23 mm, so the bay was originally sized for it. Its configs are the early history of `vesc/stormcore-60d/`.
 A [Stormcore 100D pinout](../manuals/stormcore-100d-pinout.pdf) is kept because it shares the connector layout.
 
 | Property | Value |

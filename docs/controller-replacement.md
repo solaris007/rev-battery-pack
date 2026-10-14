@@ -1,7 +1,7 @@
 # Controller Replacement
 
-The Trampa VESC HD-60T Twin failed in October 2026 and must be replaced.
-This page collects the options, what to check before powering a new controller, and how to migrate.
+The Trampa VESC HD-60T Twin failed in April 2026 and must be replaced. Trampa said it is likely not repairable.
+This page collects the options, the chosen replacement and parts to order, what to check before powering it, and how to migrate.
 Record the decision and the outcome in [log/controller.md](../log/controller.md).
 
 ## 1. What killed the HD-60T
@@ -42,13 +42,62 @@ The cause is known, so these look for collateral damage, not for the cause.
 
 Notes:
 
-- **HD-60T Twin again** is the only true drop-in for the current wiring, mounting and configs. It keeps the narrow 1.6 V margin between a full pack and its 52 V rating, so the rules above matter most with it.
+- **HD-60T Twin again** is the only true drop-in for the current wiring, mounting and configs. Trampa said in April 2026 that the HD-60 had been out of stock for over two years, so it is likely unavailable. It keeps the narrow 1.6 V margin between a full pack and its 52 V rating, so the rules above matter most with it.
 - **VESC Duet XS** fits anywhere the HD-60T fit and its 22S rating gives a 12S pack far more voltage headroom. No controller survives regen into a disabled BMS, so the rules above still apply. Its 50 A continuous per motor is plenty for the Rev. The hall and comms leads need new JST-GH plugs.
 - **Stormcore 2.0** is much bigger than the HD-60T. It only fits if the bay was not trimmed for the HD-60T. Its holes differ from the 60D+, ⌀ 4.1 mm at about 125.5 mm spacing, so expect to redrill. Lacroix publishes no drawing of its own; the figures come from the VESC Duet datasheet, which Lacroix links as the 2.0's datasheet. It needs good heatsinking for its higher current limits.
 
 Measure the actual bay and the actual unit before cutting anything. The pack layout leaves the controller space at one end, see [battery.md](battery.md#design).
 
-## 3. How much controller the Rev needs
+## 3. Decision and parts to order
+
+**Chosen on 2026-10-14: VESC Duet XS 100V.** Not yet ordered.
+It fits the HD-60T space, and its 100 V rating leaves about 50 V of headroom above a full pack, against 1.6 V on the HD-60T.
+
+**Check before ordering:** ask ReVOLT whether the dashboard works with the Duet XS, see [ReVOLT dashboard](#revolt-dashboard). The throttle runs through the dashboard, so the scooter does not ride without it.
+
+Order everything from VESC Labs in one go, because the add-on prices only apply on the Duet XS product page.
+Prices are ex VAT, as of October 2026.
+
+| Item | Price | Why |
+|---|---|---|
+| VESC Duet XS 100V | €199.99 | Replacement controller |
+| VESC Nanolog | €34.99 as add-on, €44.99 alone | Bluetooth and Wi-Fi link for VESC Tool, onboard logging |
+| XT90S connector, female | €2.49 | Probably not needed. The pack already ends in an XT90-S anti-spark plug. Check that it mates with the Duet XS's XT90 male input before ordering. The Duet XS datasheet requires an XT90S or a precharge switch when the BMS has none. |
+
+The Duet XS comes with an RGB momentary power button, six 4 mm male bullets, and 500 mm JST-GH pigtails with 2, 3, 4, 5, 6, 6 and 8 pins, so these are not on the list.
+
+A spare Stormcore 60D+, the 2021 warranty replacement, may still be on hand. It is no stopgap: its 50.4 V rating equals a full pack, so any regen spike exceeds it, the failure that killed the HD-60T.
+
+### Wireless and logging
+
+The Duet XS has no radio of its own.
+
+- **VESC Nanolog, new.** An ESP32-C3 running VESC Express firmware. It gives VESC Tool a Bluetooth LE and 2.4 GHz Wi-Fi link, stores logs in 500 MB of onboard memory, and updates over the air. It plugs into the Duet XS CAN port with its included 4-pin JST-GH cable and accepts 3–15 V, so the port's 5 V output powers it. It measures 23 × 25 mm and weighs 4.3 g.
+- **Metr Pro UART, already owned.** Bought 2021-11-22 as "Metr Pro - PCB Antenna", the UART variant. A Bluetooth LE module for the Metr app's live dashboard and ride records. VESC Tool reaches it only through the Metr app's TCP bridge. Metr has closed its shop and sells no new modules. It says the app and web services keep working "for the foreseeable future".
+
+The two overlap on phone access. The Nanolog is the long-term link, because its firmware is maintained and it logs without a phone.
+Keep the Metr Pro for the Metr app's ride stats. Nothing else depends on it.
+
+Metr's own pages name no supported VESC firmware. A mirror of the App Store listing shows VESC 7.0 support added in app version 4.30.0, July 2026.
+Check that the Metr app reads both motors after the Duet XS firmware update.
+
+The Metr Pro UART needs 3.3 V, GND, TX and RX and must not be powered from 5 V. On the Duet XS these sit on the 8-pin IO plug next to the throttle input: 3.3 V on pin 2, GND on pin 3, TX on pin 5 and RX on pin 6, with the throttle on ADC1, pin 4. Build one harness from the 8-pin pigtail that carries both. Move each Metr wire by the VESC signal it used on the old plug, so the wire on the old TX pin goes to pin 5. The 3.3 V output is rated 0.3 A. Keep ID 22 on the ADC + UART app.
+
+### ReVOLT dashboard
+
+The throttle runs through a ReVOLT dashboard by Michael Castiau, so the Duet XS must work with it.
+Five of its six wires go to the controller: GND, 5 V, ADC, CAN H and CAN L. The dashboard passes the throttle on as an ADC signal.
+
+- **ADC and GND** go to the 8-pin IO plug, ADC1 on pin 4 and GND on pin 3, in the same harness as the Metr Pro.
+- **CAN and 5 V.** The Duet XS has one CAN port, and the Nanolog needs it too. Split the port's 4-pin cable to feed both, and check that its 5 V output can supply both. Keep the CAN rate at 500 kbit/s, the dashboard's default.
+- **Power on and off.** The HD-60T needed COMM pins 1 and 6 bridged for the dashboard's roll-to-start and full shutdown. The Duet XS has a momentary power button instead. How the dashboard switches it is unknown.
+- **Firmware.** The dashboard was set up in 2021 against the VESC firmware of that time. Whether it works with current firmware is unknown.
+
+Ask ReVOLT about power switching and firmware before ordering.
+
+Every device on CAN needs its own ID. Keep 22 and 23 for the motors, check which ID the dashboard uses, and change the Nanolog's ID on VESC Tool's VESC Express page if it clashes.
+
+## 4. How much controller the Rev needs
 
 | Property | Value |
 |---|---|
@@ -59,7 +108,7 @@ Measure the actual bay and the actual unit before cutting anything. The pack lay
 
 Every option has plenty of headroom. Motor heat limits the settings, not the controller.
 
-## 4. Settings to change on the new controller
+## 5. Settings to change on the new controller
 
 Fix these before the first ride. `python3 scripts/vesc_check.py check vesc/<new hardware>` flags them.
 
@@ -69,19 +118,20 @@ Fix these before the first ride. `python3 scripts/vesc_check.py check vesc/<new 
 - **Setup info on ID 22.** Set 40 poles, gear ratio 1, wheel 0.222 m and 20 Ah on both controllers.
 - **Cut-off end.** Raise it to about 34.0 V so the VESC cuts before the BMS.
 
-## 5. Migration steps
+## 6. Migration steps
 
 1. Do the collateral-damage checks in section 1.
 2. Add the new hardware's rated voltage to `HARDWARE_MAX_V` in `scripts/vesc_check.py`.
-3. Mount the controller and connect phases, power, CAN and throttle. Leave hall cables unplugged unless you plan to use sensored mode.
+3. Mount the controller and connect phases, power through the pack's XT90-S plug, the dashboard, the Nanolog and the Metr Pro as in section 3. Leave hall cables unplugged unless you plan to use sensored mode.
 4. Power up through the anti-spark connection with the wheels off the ground.
 5. Update the firmware, then run the motor wizard for both motors. Set CAN IDs 22 and 23 as before.
 6. Re-create the app settings from `vesc/hd60t/id22-app.xml`. Do not load the HD-60T XML files directly onto different hardware.
-7. Apply the settings from section 4.
+7. Apply the settings from section 5.
 8. Export the configs to `vesc/<new hardware>/` as `id<NN>-<motor|app>.xml` and run the checker.
 9. Add the new detection results to the [detection history](../log/controller.md#motor-detection-history). Compare them with the HD-60T values.
-10. Test at walking speed, then with gentle braking, before a real ride.
-11. Update the hardware table in [log/controller.md](../log/controller.md#hardware) and the current hardware in [controller.md](controller.md).
+10. Connect VESC Tool over the Nanolog and the Metr app over the Metr Pro. Both should show IDs 22 and 23. Check that the dashboard shows live data and switches the controller on and off.
+11. Test at walking speed, then with gentle braking, before a real ride.
+12. Update the hardware table in [log/controller.md](../log/controller.md#hardware) and the current hardware in [controller.md](controller.md).
 
 ## Sources
 
@@ -89,6 +139,9 @@ From a research conversation with Claude in October 2026, citing:
 
 - Lacroix: Stormcore 2.0 product page
 - Defiant Board Society: Stormcore 60D+ specifications
-- VESC Labs: VESC Duet datasheet and Duet XS
+- VESC Labs: VESC Duet datasheet, Duet XS product page and add-ons, VESC Nanolog
+- Metr: shop notice, FAQ and setup page, and a mirror of the Metr app's App Store listing
 - Trampa: VESC HD-60T Twin product page
 - Electrek and EScooterNerds: Boosted Rev reviews and motor ratings
+
+History, parts owned and the failure date come from the owner's email: Trampa orders 35503 and 55161, Lacroix Europe order 4895, shop.metr.at order 995, and the ReVOLT dashboard thread from 2021 and 2022.

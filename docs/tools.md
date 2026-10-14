@@ -22,3 +22,4 @@
 |---|---|---|
 | [VESC Tool](https://vesc-project.com/vesc_tool) | Configure, update and log the VESC controllers | – |
 | JBD / Xiaoxiang app | Read cell voltages and BMS state over Bluetooth | – |
+| [Metr app](https://metr.at) | Live dashboard and ride records over the Metr Pro Bluetooth module. Metr sells no new modules. | [Guide](https://rpasichnyk.github.io/metr-guide/) |
