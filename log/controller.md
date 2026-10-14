@@ -31,17 +31,18 @@ Fields marked "unknown" are worth filling in at the next opportunity. VESC Tool 
 
 Newest first. One line per change that was written to the controller.
 
-Until 2026-10-14 the files in `vesc/stormcore-60d/` were taken to be Stormcore configs. Email shows the Stormcore ran only from 2021-11-15 until it failed on 2021-11-17, and the HD60T ran from 2021-11-20.
-So those files hold Stormcore settings up to `26e94d6` and HD60T settings from `ad81809` on.
+Until 2026-10-14 the files now in `vesc/hd60t-2021/` were taken to be Stormcore configs and kept in `vesc/stormcore-60d/`. Email shows the Stormcore ran only from 2021-11-15 until it failed on 2021-11-17, and the HD60T ran from 2021-11-20.
+So those files hold Stormcore settings up to `26e94d6` and HD60T settings from `ad81809` on. Their git history keeps the Stormcore versions.
 The `vesc/hd60t/` files were committed on 2026-04-18, an hour after the HD60T failure was reported to Trampa. They are the HD60T's last configs, after a firmware update, as the owner confirmed on 2026-10-14.
 Dates in 2026-04-18 rows are commit dates. The changes may have been written to the controller any time after 2021-11-21.
 
 | Date | Controller | Change | Commit |
 |---|---|---|---|
 | 2026-10-14 | HD60T | Failure recorded. No config change. Checker now flags the 57 V overvoltage fault above the 52 V rating. | – |
+| 2026-10-14 | – | `vesc/stormcore-60d/` renamed to `vesc/hd60t-2021/`, because it holds HD60T configs from 2021-11-21 on. No setting changed. | – |
 | 2026-10-14 | – | Config files moved to `vesc/hd60t/` and `vesc/stormcore-60d/` and renamed by CAN ID. No setting changed. | – |
 | 2026-04-18, commit date | HD60T | First `ConfigVersion` 2 configs, filed under `vesc/hd60t/`. Motor current 60 A, absolute 120 A, battery 30 A, regen -15 A, motor temp cut 80–100 °C. ID 22 setup info left at defaults. | `d1f867c` |
-| 2026-04-18, commit date | HD60T, filed under `stormcore-60d/` | Motor current 50 → 70 A, absolute 75 → 80 A, ID 22 app ADC → ADC + UART, throttle expo 0.75 → 0.25. The UART app most likely dates from fitting the Metr Pro in late 2021. | `d1f867c` |
+| 2026-04-18, commit date | HD60T, older format in `hd60t-2021/` | Motor current 50 → 70 A, absolute 75 → 80 A, ID 22 app ADC → ADC + UART, throttle expo 0.75 → 0.25. The UART app most likely dates from fitting the Metr Pro in late 2021. | `d1f867c` |
 | 2021-11-21 | HD60T | Regen -15 → -12 A after tuning. | `5852052` |
 | 2021-11-21 | HD60T | Separate motor detection per controller. Motor current 30 → 50 A, absolute 175 → 75 A. | `ad81809` |
 | 2021-11-17 | Stormcore | Absolute current 30 → 175 A, regen -12 → -15 A. Removed obsolete single-controller configs. Committed the morning the Stormcore failed. | `26e94d6`, `ef81433` |
@@ -59,7 +60,7 @@ The `ConfigVersion` 2 results read about 37 % higher in R on both motors than th
 |---|---|---|---|---|---|---|
 | 2026-04-18, commit date | HD60T, `ConfigVersion` 2 | 22 | 0.0314 | 6.769e-05 | 0.010502 | `d1f867c` |
 | 2026-04-18, commit date | HD60T, `ConfigVersion` 2 | 23 | 0.0485 | 8.378e-05 | 0.010487 | `d1f867c` |
-| 2026-04-18, commit date | HD60T, filed under `stormcore-60d/` | 22 | 0.0228 | 2.688e-05 | 0.010682 | `d1f867c` |
+| 2026-04-18, commit date | HD60T, older format in `hd60t-2021/` | 22 | 0.0228 | 2.688e-05 | 0.010682 | `d1f867c` |
 | 2021-11-21 | HD60T | 22 | 0.0229 | 2.511e-05 | 0.010632 | `ad81809` |
 | 2021-11-21 | HD60T | 23 | 0.0352 | 3.538e-05 | 0.010754 | `ad81809` |
 | 2021-11-15 | Stormcore | 22, 23 | 0.0385 | 3.123e-05 | 0.010824 | `f657a7f` |

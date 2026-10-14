@@ -26,7 +26,7 @@ BMS_UNDERVOLT_TOL_V = 0.1
 # Rated max input voltage per config directory under vesc/. Add new hardware here.
 HARDWARE_MAX_V = {
     "hd60t": 52.0,             # Trampa VESC HD60T manual: 11-52 V
-    "stormcore-60d": 50.4,     # Stormcore 60D+: 12S max
+    "hd60t-2021": 52.0,        # same HD60T, older config format
 }
 MOTOR_POLES = 40               # hub motor, 20 pole pairs
 GEAR_RATIO = 1                 # direct drive hub motor

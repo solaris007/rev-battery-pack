@@ -63,10 +63,10 @@ Each file is named `id<CAN ID>-<motor|app>.xml`.
 | Directory | Hardware | Status | Old file names |
 |---|---|---|---|
 | [`vesc/hd60t/`](../vesc/hd60t) | Trampa VESC HD60T | Last used, failed 2026-04 | `rev-vesc-22-*-conf.xml` → `id22-*`, `rev-vesc-local-*-conf.xml` → `id23-*` |
-| [`vesc/stormcore-60d/`](../vesc/stormcore-60d) | Stormcore 60D+ until 2021-11-17, then HD60T | Previous | `rev-vesc-22-local-*-conf.xml` → `id22-*`, `rev-vesc-23-can-*-conf.xml` → `id23-*` |
+| [`vesc/hd60t-2021/`](../vesc/hd60t-2021) | Trampa VESC HD60T, older configs. Stormcore 60D+ in git history up to 2021-11-17 | Previous | `rev-vesc-22-local-*-conf.xml` → `id22-*`, `rev-vesc-23-can-*-conf.xml` → `id23-*` |
 
 The `vesc/hd60t/` files use the newer VESC Tool format with `ConfigVersion` 2. They are the HD60T's last configs, after a firmware update.
-The `vesc/stormcore-60d/` files use the older format. Despite the directory name, their history holds Stormcore configs only up to 2021-11-17 and HD60T configs from 2021-11-21.
+The `vesc/hd60t-2021/` files use the older format. They hold HD60T configs from 2021-11-21 on. Their git history starts with the Stormcore configs of 2021-11-15 and 2021-11-17.
 See the note in the [config history](../log/controller.md#config-history).
 
 ### Key settings, HD60T
@@ -126,7 +126,7 @@ Generated with `python3 scripts/vesc_check.py summary vesc/hd60t`.
 
 Used from 2021-11-15 until it failed on 2021-11-17, see the [fault log](../log/controller.md#faults). The HD60T replaced it on 2021-11-20.
 A warranty replacement shipped on 2021-11-22. Whether it is still on hand is unknown.
-It measures 132 × 70 × 23 mm, so the bay was originally sized for it. Its configs are the early history of `vesc/stormcore-60d/`.
+It measures 132 × 70 × 23 mm, so the bay was originally sized for it. Its configs survive only in the git history of `vesc/hd60t-2021/`, commits `f657a7f` and `26e94d6`.
 A [Stormcore 100D pinout](../manuals/stormcore-100d-pinout.pdf) is kept because it shares the connector layout.
 
 | Property | Value |

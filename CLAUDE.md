@@ -13,7 +13,7 @@ There is no application code. The only script is `scripts/vesc_check.py`, which 
 
 - `docs/`: reference docs. `battery.md`, `controller.md`, `controller-replacement.md`, `maintenance.md`, `tools.md`.
 - `log/`: dated records. `controller.md` holds hardware, config history, motor detection history and faults. `maintenance.md` holds work done and battery health.
-- `vesc/<hardware>/id<CAN ID>-<motor|app>.xml`: VESC Tool exports. `hd60t/` is current, `stormcore-60d/` is the previous controller.
+- `vesc/<hardware>/id<CAN ID>-<motor|app>.xml`: VESC Tool exports. `hd60t/` holds the last HD60T configs, `hd60t-2021/` the older HD60T configs. The Stormcore 60D+ configs survive only in the git history of `hd60t-2021/`.
 - `diagrams/`, `datasheets/`, `manuals/`, `images/`: binary reference material. File names are lowercase and hyphenated.
 
 ## Conventions

@@ -35,9 +35,9 @@ The pack more than doubles the stock 370 Wh battery, for a theoretical range of 
 ```
 docs/         how the pack and controller are built and maintained
 log/          dated records: controller changes, maintenance, battery health
-vesc/         VESC Tool XML exports, one directory per controller hardware
-  hd60t/        current: id22-motor.xml, id22-app.xml, id23-motor.xml, id23-app.xml
-  stormcore-60d/  2021 configs, Stormcore first, then HD60T, kept for reference
+vesc/         VESC Tool XML exports, one directory per controller hardware or config generation
+  hd60t/        last HD60T configs: id22-motor.xml, id22-app.xml, id23-motor.xml, id23-app.xml
+  hd60t-2021/   older HD60T configs from 2021, kept for reference
 scripts/      vesc_check.py summarises, diffs and checks VESC configs
 diagrams/     pack layout (OmniGraffle source, PDF and PNG)
 datasheets/   cell, BMS, sealant and wire specifications
@@ -50,7 +50,7 @@ images/       photos
 ```
 python3 scripts/vesc_check.py summary vesc/hd60t
 python3 scripts/vesc_check.py check vesc/hd60t
-python3 scripts/vesc_check.py diff vesc/stormcore-60d/id22-motor.xml vesc/hd60t/id22-motor.xml
+python3 scripts/vesc_check.py diff vesc/hd60t-2021/id22-motor.xml vesc/hd60t/id22-motor.xml
 ```
 
 The check compares the configs against the pack and BMS limits. It needs only Python 3.
