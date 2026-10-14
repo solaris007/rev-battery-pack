@@ -49,7 +49,7 @@ The manual's minimum system requirements:
 |---|---|---|---|
 | 22 | Master | ADC + UART | Reads the throttle on ADC and forwards commands to ID 23 over CAN |
 | 23 | Slave | UART | Follows ID 22 through multi-ESC CAN control |
-| unknown | ReVOLT dashboard | – | Reads both controllers over CAN, passes the throttle to ID 22's ADC input and switches the controllers on and off |
+| unknown | ReVOLT dashboard | – | Reads both controllers over CAN, passes the throttle to ID 22's ADC input and can shut the controllers down |
 
 Both controllers use CAN baud rate setting 2, 500 kbit/s, which matches the dashboard's default, and send status at 50 Hz.
 The UART on ID 22 most likely serves the Metr Pro, a UART Bluetooth module. Dashboard wiring is in the [controller log](../log/controller.md#hardware).
