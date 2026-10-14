@@ -39,11 +39,13 @@ Real range depends on riding style, rider weight and road conditions.
 
 ## Load
 
-The Rev has 2 × 750 W hub motors, so the peak electrical demand is about 1500 W.
+The Rev keeps its original 2 × 750 W hub motors. Each is rated 750 W continuous, 1.5 kW in total.
+Boosted never published a peak figure. Reviewers estimate about 2–2.5 kW.
+The stock battery was also 43.2 V nominal, so this 12S pack matches the motors. At 43.2 V one motor draws about 17 A continuous.
 
 | Throttle | State of charge | Battery current |
 |---|---|---|
-| Full | Full, 50.4 V | ~30 A |
+| Full | Full, 50.4 V | ~30 A for both motors |
 | Full | Nominal, 43.2 V | ~35 A |
 | Full | Empty, 30 V | ~50 A |
 
@@ -113,6 +115,9 @@ Folded, the strip is about 86 mm wide. At 0.2 mm thick that carries roughly 150 
 
 The current rating of the installed BMS variant is not recorded. Add it to [the controller log](../log/controller.md#hardware) when known.
 
+**Never ride with the BMS charge input switched off.** Regen braking then has no path into the pack, the bus voltage spikes and the controller dies. This destroyed the HD60T in October 2026.
+The BMS also opens its charge path by itself at 4.25 V per cell, so avoid hard regen on a full pack.
+
 The BMS protects both charging and discharging. **Do not run the BMS in bypass mode**, i.e. only for charging:
 
 - The ESC's current protection is an extra layer. It does not replace the BMS's discharge and undervoltage protection.
@@ -128,4 +133,5 @@ Chargers and power supplies are listed in [tools.md](tools.md).
 
 - Charge between 0 and 45 °C. Let a cold pack warm up first.
 - Use 10 A for normal charging. Never exceed 30 A.
+- Charging to 4.1 V per cell, 49.2 V, leaves room for regen braking right after a charge. It costs roughly 10 % of range.
 - For storage longer than a couple of weeks, leave the pack at 3.7–3.8 V per cell.

@@ -10,6 +10,7 @@ Fields marked "unknown" are worth filling in at the next opportunity. VESC Tool 
 
 | Item | Value |
 |---|---|
+| Status | **Failed, replacement pending.** See [controller-replacement.md](../docs/controller-replacement.md) |
 | Controller | Trampa VESC HD60T, dual, board marked "MK I" |
 | Serial number | unknown |
 | Hardware version | unknown |
@@ -27,6 +28,7 @@ Newest first. One line per change that was written to the controller.
 
 | Date | Controller | Change | Commit |
 |---|---|---|---|
+| 2026-10-14 | HD60T | Controller failed from regen with the BMS charge input off. No config change. Checker now flags the 57 V overvoltage fault above the 52 V rating. | – |
 | 2026-10-14 | – | Config files moved to `vesc/hd60t/` and `vesc/stormcore-60d/` and renamed by CAN ID. No setting changed. | – |
 | 2026-04-18 | HD60T | First HD60T configs. Motor current 60 A, absolute 120 A, battery 30 A, regen -15 A, motor temp cut 80–100 °C. ID 22 setup info left at defaults. | `d1f867c` |
 | 2026-04-18 | Stormcore | Last Stormcore update. Motor current 50 → 70 A, absolute 75 → 80 A, ID 22 app ADC → ADC + UART, throttle expo 0.75 → 0.25. | `d1f867c` |
@@ -57,3 +59,4 @@ Record any fault code shown in VESC Tool, red LED, cut-out or overheating.
 
 | Date | Odometer (km) | Controller | Fault / symptom | Cause | Fix |
 |---|---|---|---|---|---|
+| 2026-10, reported 2026-10-14 | unknown | HD60T | Controller blown. Which half failed is not recorded. | Regen braking while the BMS charge input was manually disabled. Regen current had no path into the pack and the bus voltage spiked past the rating. | Replace the controller, see [controller-replacement.md](../docs/controller-replacement.md) |

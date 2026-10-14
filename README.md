@@ -12,14 +12,15 @@ The pack more than doubles the stock 370 Wh battery, for a theoretical range of 
 | Cells | 60 × Samsung INR21700-40T, 12S5P |
 | Pack | 50.4 V max, 43.2 V nominal, 20 Ah, 864 Wh |
 | BMS | JBD 12S Smart BMS |
-| Controller | Trampa VESC HD60T, dual, CAN IDs 22 and 23 |
+| Controller | Trampa VESC HD60T, dual, CAN IDs 22 and 23. **Failed 2026-10 from regen with the BMS charge input off, replacement pending** |
 | Previous controller | Stormcore 60D+, 2021–2026 |
-| Motors | 2 × 750 W hub motors |
+| Motors | 2 × 750 W continuous hub motors, original Boosted |
 
 ## Documentation
 
 - [Battery pack](docs/battery.md): cells, pack specs, layout, build steps, nickel strip, BMS and charging.
 - [Motor controller](docs/controller.md): VESC hardware, CAN layout, config files, open issues and how to change settings.
+- [Controller replacement](docs/controller-replacement.md): why the HD60T failed, how to prevent it, replacement options with dimensions, and migration steps.
 - [Maintenance](docs/maintenance.md): schedule, thresholds and procedures.
 - [Tools and equipment](docs/tools.md): spot welder, charger and software.
 

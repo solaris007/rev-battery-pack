@@ -23,7 +23,11 @@ CELL_MAX_DISCHARGE_A = 35      # Samsung 40T, continuous, no temp cut
 CELL_MAX_CHARGE_A = 6          # Samsung 40T, rated charge
 BMS_UNDERVOLT_CELL_V = 2.7     # JBD default, tolerance +/- 0.1 V
 BMS_UNDERVOLT_TOL_V = 0.1
-CONTROLLER_MAX_V = 52          # VESC HD60T input range 11-52 V
+# Rated max input voltage per config directory under vesc/. Add new hardware here.
+HARDWARE_MAX_V = {
+    "hd60t": 52.0,             # Trampa VESC HD60T manual: 11-52 V
+    "stormcore-60d": 50.4,     # Stormcore 60D+: 12S max
+}
 MOTOR_POLES = 40               # hub motor, 20 pole pairs
 GEAR_RATIO = 1                 # direct drive hub motor
 
@@ -138,9 +142,12 @@ def cmd_check(directory):
     def fail(msg):
         problems.append(("FAIL", msg))
 
-    pack_max_v = SERIES * CELL_MAX_V
-    if pack_max_v > CONTROLLER_MAX_V:
-        fail(f"full pack {pack_max_v:.1f} V exceeds controller rating {CONTROLLER_MAX_V} V")
+    pack_max_v = round(SERIES * CELL_MAX_V, 2)
+    hw_max_v = HARDWARE_MAX_V.get(Path(directory).resolve().name)
+    if hw_max_v is None:
+        warn(f"no voltage rating for '{Path(directory).name}' in HARDWARE_MAX_V; voltage checks skipped")
+    elif pack_max_v > hw_max_v:
+        fail(f"full pack {pack_max_v:.1f} V exceeds controller rating {hw_max_v} V")
 
     total_in = total_regen = 0.0
     ids_seen = set()
@@ -169,6 +176,11 @@ def cmd_check(directory):
             elif cut_end < bms_worst:
                 warn(f"{tag}: cutoff end {cut_end} V ({cut_end / SERIES:.2f} V/cell) is within the "
                      f"BMS tolerance (up to {bms_worst:.1f} V); the BMS may cut power before the VESC")
+
+        max_vin = num(m, "l_max_vin")
+        if hw_max_v is not None and max_vin is not None and max_vin > hw_max_v:
+            warn(f"{tag}: overvoltage fault at {max_vin:g} V is above the controller rating "
+                 f"{hw_max_v:g} V; regen on a full pack can exceed the rating without a fault")
 
         t_start, t_end = num(m, "l_temp_motor_start"), num(m, "l_temp_motor_end")
         if t_start is not None and t_end is not None and t_start >= t_end:

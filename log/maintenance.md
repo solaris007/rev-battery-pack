@@ -9,6 +9,7 @@ Entries before October 2026 were reconstructed from git history.
 
 | Date | Odometer (km) | Work done | Notes |
 |---|---|---|---|
+| 2026-10 | unknown | HD60T controller failed from regen braking with the BMS charge input manually disabled. Scooter out of service until the controller is replaced. | Prevention and checks in [controller-replacement.md](../docs/controller-replacement.md#1-what-killed-the-hd-60t) |
 | 2026-04-18 | unknown | Replaced the Stormcore 60D+ with a Trampa VESC HD60T. Ran motor detection on both controllers. | See controller log |
 | 2021-11 | – | Pack built and installed with the Stormcore 60D+. Controllers detected and tuned. | – |
 

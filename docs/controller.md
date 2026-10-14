@@ -3,7 +3,11 @@
 The Rev runs two hub motors from a dual VESC controller. Both halves talk over CAN.
 The live record of hardware, firmware and changes is in [log/controller.md](../log/controller.md).
 
-## Current hardware: Trampa VESC HD60T
+> **Status, October 2026:** the HD60T failed from regen braking with the BMS charge input switched off. It must be replaced.
+> The cause, prevention rules, options and migration steps are in [controller-replacement.md](controller-replacement.md).
+> The HD60T configs stay in `vesc/hd60t/` as the reference for the next controller.
+
+## Last hardware: Trampa VESC HD60T, failed
 
 ![VESC HD60 dual board](../images/vesc-hd60-board.jpg)
 
@@ -13,6 +17,7 @@ See the [HD60T manual](../manuals/vesc-hd60t-manual.pdf).
 | Property | Value |
 |---|---|
 | Input voltage | 11–52 V, about 4–12S Li-ion |
+| Size | 101 × 55 × 18 mm |
 | Controllers | 2, labelled 1 and 2 on the board |
 | Ports on controller 1 | USB, COMM (ADC, UART, I²C), PPM, CAN, SWD, sensor |
 | Ports on controller 2 | USB, SWD, sensor. COMM, PPM and CAN stay unconnected on standard setups |
@@ -21,6 +26,8 @@ See the [HD60T manual](../manuals/vesc-hd60t-manual.pdf).
 
 A full 12S pack sits at 50.4 V, only 1.6 V under the 52 V rating.
 Regenerative braking on a full pack pushes the voltage up, so ride gently for the first minutes after a full charge.
+
+Never brake with the BMS charge input switched off. Regen current then has nowhere to go and destroys the controller, which is how this HD60T failed.
 
 The manual's minimum system requirements:
 
@@ -39,6 +46,7 @@ The manual's minimum system requirements:
 | 23 | Slave | UART | Follows ID 22 through multi-ESC CAN control |
 
 Both controllers use CAN baud rate setting 2 and send status at 50 Hz.
+Both run sensorless FOC. The hall sensors in the motors are not used.
 
 ## Config files
 
@@ -47,7 +55,7 @@ Each file is named `id<CAN ID>-<motor|app>.xml`.
 
 | Directory | Hardware | Status | Old file names |
 |---|---|---|---|
-| [`vesc/hd60t/`](../vesc/hd60t) | Trampa VESC HD60T | Current | `rev-vesc-22-*-conf.xml` → `id22-*`, `rev-vesc-local-*-conf.xml` → `id23-*` |
+| [`vesc/hd60t/`](../vesc/hd60t) | Trampa VESC HD60T | Last used, failed 2026-10 | `rev-vesc-22-*-conf.xml` → `id22-*`, `rev-vesc-local-*-conf.xml` → `id23-*` |
 | [`vesc/stormcore-60d/`](../vesc/stormcore-60d) | Stormcore 60D+ | Previous | `rev-vesc-22-local-*-conf.xml` → `id22-*`, `rev-vesc-23-can-*-conf.xml` → `id23-*` |
 
 The HD60T files use the newer VESC Tool format with `ConfigVersion` 2.
@@ -78,9 +86,11 @@ Generated with `python3 scripts/vesc_check.py summary vesc/hd60t`.
 | Wheel diameter (m) | 0.083 | 0.222 |
 | Battery capacity (Ah) | 6 | 20 |
 
-### Open issues in the current config
+### Open issues in the HD60T config
 
-`python3 scripts/vesc_check.py check vesc/hd60t` reports these:
+`python3 scripts/vesc_check.py check vesc/hd60t` reports these. Fix them on the replacement controller.
+
+- **The overvoltage fault is set to 57 V, above the 52 V rating.** Regen on a full pack could push the bus past the rating without a fault. It did not cause the failure, but lower it on the next controller.
 
 - **ID 22 setup info is at VESC defaults.** Poles, gear ratio, wheel diameter and battery Ah should be 40, 1, 0.222 m and 20 Ah like ID 23. These values only affect speed, distance and battery % shown in VESC Tool, not motor control.
 - **Regen equals the pack's charge limit.** 2 × 15 A is the full 30 A the cells accept. Keep it there or lower, never higher.
@@ -106,7 +116,7 @@ Generated with `python3 scripts/vesc_check.py summary vesc/hd60t`.
 
 ## Previous hardware: Stormcore 60D+
 
-Used from 2021 until the HD60T swap in 2026. Its configs are kept in `vesc/stormcore-60d/` for reference.
+Used from 2021 until the HD60T swap in 2026. It measures 132 × 70 × 23 mm, so the bay was originally sized for it. Its configs are kept in `vesc/stormcore-60d/` for reference.
 A [Stormcore 100D pinout](../manuals/stormcore-100d-pinout.pdf) is kept because it shares the connector layout.
 
 | Property | Value |
@@ -114,3 +124,6 @@ A [Stormcore 100D pinout](../manuals/stormcore-100d-pinout.pdf) is kept because 
 | Battery input | up to 50.4 V |
 | Battery current | 80 A for a couple of minutes, 100 A peak for seconds |
 | Battery current used | 30 A per controller, 60 A combined |
+| Motor current rating | 75 A |
+
+Its successor is the Lacroix Stormcore 2.0, see [controller-replacement.md](controller-replacement.md#2-options).

@@ -11,7 +11,7 @@ There is no application code. The only script is `scripts/vesc_check.py`, which 
 
 ## Layout
 
-- `docs/`: reference docs. `battery.md`, `controller.md`, `maintenance.md`, `tools.md`.
+- `docs/`: reference docs. `battery.md`, `controller.md`, `controller-replacement.md`, `maintenance.md`, `tools.md`.
 - `log/`: dated records. `controller.md` holds hardware, config history, motor detection history and faults. `maintenance.md` holds work done and battery health.
 - `vesc/<hardware>/id<CAN ID>-<motor|app>.xml`: VESC Tool exports. `hd60t/` is current, `stormcore-60d/` is the previous controller.
 - `diagrams/`, `datasheets/`, `manuals/`, `images/`: binary reference material. File names are lowercase and hyphenated.
@@ -21,5 +21,6 @@ There is no application code. The only script is `scripts/vesc_check.py`, which 
 - VESC XML files are exported by VESC Tool. Do not hand-edit them. Describe a suggested setting change in `docs/controller.md` instead and let the owner write it to the controller.
 - When VESC configs change, run `python3 scripts/vesc_check.py check vesc/hd60t` and add a line to the config history in `log/controller.md`. If motor detection values changed, add a line to the detection history too.
 - Pack and hardware limits live in two places: `docs/battery.md` and the constants at the top of `scripts/vesc_check.py`. Keep them in sync.
+- A new controller gets its own `vesc/<hardware>/` directory and an entry in `HARDWARE_MAX_V` in `scripts/vesc_check.py`.
 - Logs are newest first. Mark unknown values as "unknown" rather than guessing.
 - Diagram PNGs are rendered from the PDF with `pdftoppm -r 60 -png -singlefile diagrams/<name>.pdf diagrams/<name>`.

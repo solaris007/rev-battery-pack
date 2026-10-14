@@ -4,8 +4,10 @@ VESC Tool XML exports. One directory per controller hardware, one file per CAN I
 
 | Directory | Hardware | Status |
 |---|---|---|
-| `hd60t/` | Trampa VESC HD60T | Current |
+| `hd60t/` | Trampa VESC HD60T | Last used, failed 2026-10. Reference for the replacement |
 | `stormcore-60d/` | Stormcore 60D+ | Previous, reference only |
+
+A new controller gets its own directory and an entry in `HARDWARE_MAX_V` in `scripts/vesc_check.py`.
 
 File names follow `id<CAN ID>-<motor|app>.xml`. Keep that pattern, because `scripts/vesc_check.py` relies on it.
 

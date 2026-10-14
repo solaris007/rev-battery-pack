@@ -8,6 +8,7 @@ Record what you do in [log/maintenance.md](../log/maintenance.md). Record contro
 ### Before every ride
 
 - [ ] Pack voltage is above 36 V. Below that, charge first.
+- [ ] Both charge and discharge are switched on in the BMS app. Regen with charge off destroys the controller.
 - [ ] No warning or red LED on the controller.
 - [ ] Throttle returns to zero and brakes work at walking speed.
 - [ ] No new rattles, smells or visible damage on the deck and enclosure.
@@ -73,6 +74,12 @@ python3 scripts/vesc_check.py check vesc/hd60t
 - Store indoors, between 10 and 25 °C, away from anything flammable.
 - Check the voltage every month and top up to storage level if needed.
 - Disconnect the power switch or anti-spark loop so the controller does not drain the pack.
+
+### After a controller failure
+
+1. Disconnect the pack from the controller.
+2. Find the cause before connecting a new controller. Check the BMS charge state first, then phase wires and motors, see [controller-replacement.md](controller-replacement.md#1-what-killed-the-hd-60t).
+3. Log the fault in the [controller log](../log/controller.md#faults).
 
 ### After a crash or water exposure
 
